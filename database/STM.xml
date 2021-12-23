@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: https://ondras.zarovi.cz/sql/demo/?keyword=default -->
+<sql>
+<datatypes db="oracle">
+  <group label="Numeric" color="rgb(238,238,170)">
+    <type label="Integer" length="0" sql="INTEGER" quote=""/>
+    <type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+    <type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+    <type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+    <type label="INT" length="0" sql="INT" quote=""/>
+    <type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+    <type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+    <type label="Single precision" length="0" sql="FLOAT" quote=""/>
+    <type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+  </group>
+
+  <group label="Character" color="rgb(255,200,200)">
+    <type label="Char" length="1" sql="CHAR" quote="'"/>
+    <type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+    <type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+    <type label="Binary" length="1" sql="BINARY" quote="'"/>
+    <type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+    <type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+  </group>
+
+  <group label="Date &amp; Time" color="rgb(200,255,200)">
+    <type label="Date" length="0" sql="DATE" quote="'"/>
+    <type label="Time" length="0" sql="TIME" quote="'"/>
+    <type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+    <type label="Year" length="0" sql="YEAR" quote=""/>
+    <type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+  </group>
+
+  <group label="Miscellaneous" color="rgb(200,200,255)">
+    <type label="ENUM" length="1" sql="ENUM" quote=""/>
+    <type label="SET" length="1" sql="SET" quote=""/>
+    <type label="Bit" length="0" sql="bit" quote=""/>
+  </group>
+</datatypes><table x="509" y="572" name="Usuarios">
+<row name="id_usuario" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="nombres" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="apellidos" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="correo" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_tipo_de-usuario" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Tipos_de_Usuarios" row="id_tipo_de_usuario" />
+</row>
+<row name="id_estatus_usuario" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="estatus_usuarios" row="id_estatus_usuario" />
+</row>
+<key type="PRIMARY" name="">
+<part>id_usuario</part>
+</key>
+</table>
+<table x="549" y="41" name="Tickets">
+<row name="id_tickets" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="asunto" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="descripcion" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="fecha_de_creacion" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="id_estatus_ticket" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Estatus_Tickets" row="id_estatus_ticket" />
+</row>
+<row name="id_prioridad" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Prioridades" row="id_prioridad" />
+</row>
+<row name="id_laboratorio" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Laboratorios" row="id_laboratorio" />
+</row>
+<row name="id_usuario_soporte" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Usuarios_Soportes" row="id_usuarios_soporte" />
+</row>
+<row name="archivo_adjunto" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_tickets</part>
+</key>
+</table>
+<table x="775" y="399" name="Mantenimientos">
+<row name="id_mantiniento" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="fecha_programada" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="fecha_realizada" null="1" autoincrement="0">
+<datatype>DATE</datatype>
+<default>NULL</default></row>
+<row name="descripcion" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="id_mantenimiento" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Laboratorios" row="id_laboratorio" />
+</row>
+<row name="id_tipo_mantenimiento" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Tipos_Mantenimientos" row="id_tipo_mantenimiento" />
+</row>
+<row name="id_estatus_mantenimiento" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Estatus_Mantenimientos" row="id_estatus_mantenimiento" />
+</row>
+<row name="id_usuario_programa" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Usuarios" row="id_usuario" />
+</row>
+<row name="id_usuario_realiza" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Usuarios" row="id_usuario" />
+</row>
+<key type="PRIMARY" name="">
+<part>id_mantiniento</part>
+</key>
+</table>
+<table x="1030" y="580" name="Estatus_Mantenimientos">
+<row name="id_estatus_mantenimiento" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="estatus_mantenimientos" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_estatus_mantenimiento</part>
+</key>
+</table>
+<table x="327" y="39" name="Estatus_Tickets">
+<row name="id_estatus_ticket" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="estatus_ticket" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_estatus_ticket</part>
+</key>
+</table>
+<table x="242" y="736" name="estatus_usuarios">
+<row name="id_estatus_usuario" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="estatus_usuario" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_estatus_usuario</part>
+</key>
+</table>
+<table x="230" y="594" name="Tipos_de_Usuarios">
+<row name="id_tipo_de_usuario" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="tipo_de_usuario" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_tipo_de_usuario</part>
+</key>
+</table>
+<table x="346" y="157" name="Prioridades">
+<row name="id_prioridad" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="prioridad" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_prioridad</part>
+</key>
+</table>
+<table x="346" y="271" name="Laboratorios">
+<row name="id_laboratorio" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="laboratorio" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_laboratorio</part>
+</key>
+</table>
+<table x="782" y="55" name="Usuarios_Soportes">
+<row name="id_usuarios_soporte" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="nombre" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="correo" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_usuarios_soporte</part>
+</key>
+</table>
+<table x="1032" y="487" name="Tipos_Mantenimientos">
+<row name="id_tipo_mantenimiento" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="tipo_mantenimiento" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_tipo_mantenimiento</part>
+</key>
+</table>
+<table x="1075" y="182" name="Materiales">
+<row name="id_material" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Materiales_Mantenimientos" row="id_material" />
+</row>
+<row name="material" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="existencia" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id_material</part>
+</key>
+</table>
+<table x="762" y="268" name="Materiales_Mantenimientos">
+<row name="id_material" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_mantenimiento" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Mantenimientos" row="id_mantiniento" />
+</row>
+<key type="PRIMARY" name="">
+<part>id_material</part>
+</key>
+</table>
+</sql>
