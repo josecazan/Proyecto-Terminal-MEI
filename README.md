@@ -1,7 +1,7 @@
 # SGTM
 
 
-### Features
+### Features ###
 19/09/2021
 - Para ejecutar el código instalar un servidor apache (Se recomienda XAMPP, WAMP o LAMP)
 - El dashboard de administrador se encuentra en dashboard/index.php
